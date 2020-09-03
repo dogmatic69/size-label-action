@@ -16,8 +16,6 @@ const sizes = {
   1000: "XXL"
 };
 
-const actions = ["opened", "synchronize"];
-
 const globrexOptions = { extended: true, globstar: true };
 
 async function main() {
@@ -41,11 +39,6 @@ async function main() {
   }
 
   debug("Event payload:", eventDataStr);
-
-  if (!actions.includes(eventData.action)) {
-    console.log("Action will be ignored:", eventData.action);
-    return false;
-  }
 
   const isIgnored = parseIgnored(process.env.IGNORED);
 
